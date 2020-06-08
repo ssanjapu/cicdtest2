@@ -28,7 +28,35 @@
 				<configuration>
 				</configuration>
 			</plugin>
-		</plugins>
+			<plugin>
+  <groupId>org.mule.tools.maven</groupId>
+  <artifactId>mule-maven-plugin</artifactId>
+  <version>3.6.3</version>
+  <extensions>true</extensions>
+<configuration>
+<cloudHubDeployment>
+      <uri>https://anypoint.mulesoft.com/</uri>
+      <muleVersion>app.runtime</muleVersion>
+      <username>mule-test1</username>
+      <password>$@nJapu_999</password>
+      <applicationName>cicdtest2</applicationName>
+      <environment>Sandbox</environment>
+	  <!-- <region></region>  -->
+	  <workers>1</workers>
+      <workerType>Micro</workerType>
+</cloudHubDeployment>
+</configuration>
+<executions>
+  <execution>
+    <id>deploy</id>
+    <phase>deploy</phase>
+    <goals>
+      <goal>deploy</goal>
+    </goals>
+  </execution>
+</executions>
+</plugin>			
+</plugins>
 	</build>
 
 	<dependencies>
