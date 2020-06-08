@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="675b2710-8a79-4e76-84dc-72cd5a0c9443" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cicd_testFlow" doc:id="c858798b-793e-46db-920d-86d73fa64e4d" >
+		<http:listener doc:name="Listener" doc:id="70a5d33d-83d6-41c2-a93b-699ec7cfb054" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c753e963-9c2a-4776-a9dc-a40967fd59e0" message="cicd test"/>
+		<set-payload value="cloudhub deployment" doc:name="Set Payload" doc:id="19d53b9d-f098-4686-b13c-47b8d564406f" />
+	</flow>
+</mule>
